@@ -86,7 +86,6 @@ func run(args []string) error {
 		return fmt.Errorf("reading state file: %w", err)
 	}
 	if done {
-		fmt.Fprintf(os.Stderr, "onceaday: %s already ran today, skipping\n", program)
 		return nil
 	}
 

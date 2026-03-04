@@ -14,4 +14,4 @@ tasks:
   build:
     desc: Build go app
     cmds:
-      - go -o once main.go
+      - go build -o once main.go
