@@ -89,12 +89,14 @@ func run(args []string) error {
 		return nil
 	}
 
-	if err := runProgram(program, programArgs); err != nil {
-		return fmt.Errorf("running %s: %w", program, err)
-	}
+	runErr := runProgram(program, programArgs)
 
 	if err := recordRun(path, program); err != nil {
 		return fmt.Errorf("recording run: %w", err)
+	}
+
+	if runErr != nil {
+		return fmt.Errorf("running %s: %w", program, runErr)
 	}
 	return nil
 }
